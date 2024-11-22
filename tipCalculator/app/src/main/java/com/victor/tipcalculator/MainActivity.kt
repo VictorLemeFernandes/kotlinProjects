@@ -9,6 +9,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -165,7 +166,8 @@ fun RoundTheTipRow(roundUp: Boolean, onRoundUpChanged: (Boolean) -> Unit, modifi
     }
 }
 
-private fun calculateTip(amount: Double, tipPercent: Double, roundUp: Boolean): String {
+@VisibleForTesting // This makes the method public, but indicates to others that it's only public for testing purposes.
+internal fun calculateTip(amount: Double, tipPercent: Double, roundUp: Boolean): String {
     var tip = tipPercent / 100 * amount
 
     if (roundUp) {
