@@ -1,7 +1,6 @@
 # Kotlin Projects
 
 ## About this repository
-
 This repository is part of my journey to become an Android Developer.  
 Here, I will store my progress and personal projects related to Android development.
 
