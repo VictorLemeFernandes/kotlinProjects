@@ -15,3 +15,5 @@ O app permite que o usuário selecione uma unidade de medida a partir de um slid
 Este projeto foi uma grande oportunidade de consolidar meus conhecimentos e explorar as capacidades do Jetpack Compose em aplicações práticas. Estou animado para continuar aprimorando minhas habilidades e construir soluções ainda mais completas no futuro! 🚀
 
 👉 Por enquanto o projeto está apenas aqui no GitHub, mas logo estará na Play Store
+
+![Execução do aplicativo](appUnitConverter.gif)
