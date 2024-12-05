@@ -16,4 +16,4 @@ Este projeto foi uma grande oportunidade de consolidar meus conhecimentos e expl
 
 👉 Por enquanto o projeto está apenas aqui no GitHub, mas logo estará na Play Store
 
-![Execução do aplicativo](appUnitConverter.gif)
+<img src="appUnitConverter.gif" alt="Execução do aplicativo" width="540" height="960"/>
