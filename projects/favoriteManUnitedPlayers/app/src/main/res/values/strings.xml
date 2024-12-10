@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Favorite Players</string>
+    <string name="previous_text_button">Anterior</string>
+    <string name="next_text_button">Próximo</string>
 </resources>
