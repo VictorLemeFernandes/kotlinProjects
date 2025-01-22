@@ -9,8 +9,8 @@ import androidx.compose.ui.unit.sp
 import com.victor.superhero.R
 
 val Cabin = FontFamily(
-    Font(R.font.cabin_regular),
-    Font(R.font.cabin_bold)
+    Font(R.font.cabin_regular, FontWeight.Normal),
+    Font(R.font.cabin_bold, FontWeight.Bold)
 )
 
 // Set of Material typography styles to start with
@@ -19,10 +19,22 @@ val Typography = Typography(
         fontFamily = Cabin,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
     ),
     displayLarge = TextStyle(
         fontFamily = Cabin,
+        fontWeight = FontWeight.Normal,
+        fontSize = 30.sp
+    ),
+    displayMedium = TextStyle(
+        fontFamily = Cabin,
         fontWeight = FontWeight.Bold,
-        fontSize = 36.sp
+        fontSize = 20.sp
+    ),
+    displaySmall = TextStyle(
+        fontFamily = Cabin,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
     )
 )
