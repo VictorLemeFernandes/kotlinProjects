@@ -54,8 +54,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -166,7 +166,7 @@ private fun shareSoldDessertsInformation(intentContext: Context, dessertsSold: I
     val shareIntent = Intent.createChooser(sendIntent, null)
 
     try {
-        ContextCompat.startActivity(intentContext, shareIntent, null)
+        ContextCompat.startActivities(intentContext, arrayOf(shareIntent), null)
     } catch (e: ActivityNotFoundException) {
         Toast.makeText(
             intentContext,
@@ -181,16 +181,16 @@ private fun DessertClickerApp(
     desserts: List<Dessert>
 ) {
 
-    var revenue by remember { mutableStateOf(0) }
-    var dessertsSold by remember { mutableStateOf(0) }
+    var revenue by rememberSaveable { mutableIntStateOf(0) }
+    var dessertsSold by rememberSaveable { mutableIntStateOf(0) }
 
-    val currentDessertIndex by remember { mutableStateOf(0) }
+    val currentDessertIndex by rememberSaveable { mutableIntStateOf(0) }
 
-    var currentDessertPrice by remember {
-        mutableStateOf(desserts[currentDessertIndex].price)
+    var currentDessertPrice by rememberSaveable {
+        mutableIntStateOf(desserts[currentDessertIndex].price)
     }
-    var currentDessertImageId by remember {
-        mutableStateOf(desserts[currentDessertIndex].imageId)
+    var currentDessertImageId by rememberSaveable {
+        mutableIntStateOf(desserts[currentDessertIndex].imageId)
     }
 
     Scaffold(
