@@ -53,10 +53,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -68,9 +66,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
-import com.example.dessertclicker.data.Datasource
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.dessertclicker.model.Dessert
 import com.example.dessertclicker.ui.theme.DessertClickerTheme
+import com.example.dessertclicker.ui.theme.DessertViewModel
 
 /*A good convention is to declare a TAG constant in your file as its value will not change.
 
@@ -90,7 +89,7 @@ class MainActivity : ComponentActivity() {
                         .fillMaxSize()
                         .statusBarsPadding(),
                 ) {
-                    DessertClickerApp(desserts = Datasource.dessertList)
+                    DessertClickerApp()
                 }
             }
         }
@@ -178,20 +177,10 @@ private fun shareSoldDessertsInformation(intentContext: Context, dessertsSold: I
 
 @Composable
 private fun DessertClickerApp(
-    desserts: List<Dessert>
+    dessertViewModel: DessertViewModel = viewModel()
 ) {
 
-    var revenue by rememberSaveable { mutableIntStateOf(0) }
-    var dessertsSold by rememberSaveable { mutableIntStateOf(0) }
-
-    val currentDessertIndex by rememberSaveable { mutableIntStateOf(0) }
-
-    var currentDessertPrice by rememberSaveable {
-        mutableIntStateOf(desserts[currentDessertIndex].price)
-    }
-    var currentDessertImageId by rememberSaveable {
-        mutableIntStateOf(desserts[currentDessertIndex].imageId)
-    }
+    val dessertUiState by dessertViewModel.uiState.collectAsState()
 
     Scaffold(
         topBar = {
